@@ -3,8 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/role.dart';
 
 class RoleService {
-  static const String apiUrl =
-      'http://localhost:5000/api/Roles'; // Replace with your actual API URL
+  static const String apiUrl = 'http://localhost:5000/api/Roles';
 
   // Fetch all roles
   static Future<List<Role>> getRoles() async {
