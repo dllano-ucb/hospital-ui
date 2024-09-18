@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'views/roles_view.dart';
 import 'providers/role_provider.dart'; // Import RoleProvider
+import 'views/users_view.dart';
+import 'providers/user_provider.dart'; // Import RoleProvider
 
 void main() {
   runApp(MyApp());
@@ -12,8 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-            create: (context) => RoleProvider()), // Add RoleProvider
+        ChangeNotifierProvider(create: (context) => RoleProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
       child: MaterialApp(
         title: 'User & Role Management',
@@ -53,6 +55,16 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => RolesView()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.assignment),
+              title: Text('Users'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UsersView()),
                 );
               },
             ),
